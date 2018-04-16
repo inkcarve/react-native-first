@@ -25,7 +25,7 @@ export default class FadeIn extends Component {
       this.state.fadeInAnimate,
       {
         toValue: 1,
-        duration:10000
+        duration:1000
       }
       ).start();
   }
