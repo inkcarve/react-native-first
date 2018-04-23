@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Animated } from 'react-native';
-import FadeIn from '../animate/fade-in';
+// import FadeIn from '../animate/fade-in';
 import * as Animatable from 'react-native-animatable';
 import TimerMixin from 'react-timer-mixin';
+import LetterAnimate from '../animate/letter-animate';
 
 export default class StartView extends Component<{}> {
   // mixins=[TimerMixin];
@@ -27,17 +28,20 @@ export default class StartView extends Component<{}> {
         onAnimationEnd={()=>{this.setState({subTitleEnd:true});}}
         style={{fontSize:10, marginBottom:4}}>Welcome!</Animatable.Text>
         {/*<Animatable.View>*/}
-          <Animatable.Text
+          {/*<Animatable.Text*/}
           /*animation="pulse"
           easing="ease-out"
           iterationCount="infinite"
           */
-          animation={this.state.subTitleEnd?"bounceIn":null}
+          {/*animation={this.state.subTitleEnd?"bounceIn":null}
           onAnimationEnd={()=>{this.setState({titleEnd:true});}}
           style={{ textAlign: 'center', fontSize:24, fontStyle:'italic' , marginBottom:10 ,opacity:0}}>
           New-Customers
-          </Animatable.Text>
+          </Animatable.Text>*/}
         {/*</Animatable.View>*/}
+        <LetterAnimate animation={"fadeIn"} fire={this.state.subTitleEnd}
+          onAnimationEnd={()=>{this.setState({titleEnd:true});}} letters={"New-Customers"} delay={50} style={{textAlign: 'center', marginBottom:10, alignItems:'center',flexDirection:'row'}} letterStyle={{fontSize:24, fontStyle:'italic'}}></LetterAnimate>
+        }
         <Animatable.View animation="fadeIn">
           <Animatable.Text delay={500}
           easing="ease-out"
