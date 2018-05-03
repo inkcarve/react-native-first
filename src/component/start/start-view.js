@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Animated } from 'react-native';
-// import FadeIn from '../animate/fade-in';
 import * as Animatable from 'react-native-animatable';
 import TimerMixin from 'react-timer-mixin';
-import LetterAnimate from '../animate/letter-animate';
+import LetterAnimate from '../../animate/letter-animate';
 
 export default class StartView extends Component<{}> {
-  // mixins=[TimerMixin];
   state={
     startViewClick:false,
     titleEnd:false,
@@ -14,33 +12,24 @@ export default class StartView extends Component<{}> {
     titleOpacity:0
   };
   subTitleAnimEnd=()=>{
-// setTimeout(()=>{this.setState({subTitleEnd:true})}, 1000})
-// this.setState({subTitleEnd:true});
-// alert('subTitleAnimEnd')
-// this.state.subTitleEnd = true;
-// this.state.titleOpacity=1;
-  }
+    this.setState({subTitleEnd:true});
+  };
+  titleAnimEnd=()=>{
+    this.setState({titleEnd:true});
+  };
   render() {
     return (
       <View style={styles.container}>
         <Animatable.Text animation="lightSpeedIn"
         duration={500}
-        onAnimationEnd={()=>{this.setState({subTitleEnd:true});}}
+        onAnimationEnd={this.subTitleAnimEnd}
         style={{fontSize:10, marginBottom:4}}>Welcome!</Animatable.Text>
-        {/*<Animatable.View>*/}
-          {/*<Animatable.Text*/}
-          /*animation="pulse"
-          easing="ease-out"
-          iterationCount="infinite"
-          */
-          {/*animation={this.state.subTitleEnd?"bounceIn":null}
-          onAnimationEnd={()=>{this.setState({titleEnd:true});}}
-          style={{ textAlign: 'center', fontSize:24, fontStyle:'italic' , marginBottom:10 ,opacity:0}}>
-          New-Customers
-          </Animatable.Text>*/}
-        {/*</Animatable.View>*/}
         <LetterAnimate animation={"fadeIn"} fire={this.state.subTitleEnd}
-          onAnimationEnd={()=>{this.setState({titleEnd:true});}} letters={"New-Customers"} delay={50} style={{textAlign: 'center', marginBottom:10, alignItems:'center',flexDirection:'row'}} letterStyle={{fontSize:24, fontStyle:'italic'}}></LetterAnimate>
+          onAnimationEnd={this.titleAnimEnd}
+          letters={"New-Customers"} 
+          delay={50} 
+          style={{ marginBottom:10, alignItems:'center',flexDirection:'row'}} 
+          letterStyle={{fontSize:24, fontStyle:'italic'}}></LetterAnimate>
         }
         <Animatable.View animation="fadeIn">
           <Animatable.Text delay={500}
