@@ -1,6 +1,7 @@
 import React from 'react';
 import { Animated, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import StartView from "./start-view";
+import StartIndex from "./start-index";
 import * as Animatable from "react-native-animatable";
 import coreStyle from '../../style/core-style'
 
@@ -19,8 +20,6 @@ export default class Start extends React.Component<{}> {
     console.log("startViewEnd: "+this.state.startViewEnd);
   };
 
-  
-
   render() {
   //   let StartViewBox = ()=>{
   //   return ();
@@ -35,7 +34,7 @@ export default class Start extends React.Component<{}> {
       </TouchableOpacity>)
       }
       {/*<View style={styles.container}>*/}
-      {this.state.startViewEnd?(<Animatable.Text animation={"fadeIn"}>內容</Animatable.Text>):null}
+      {this.state.startViewEnd?(<Animatable.View animation={"fadeIn"}><StartIndex></StartIndex></Animatable.View>):null}
       {/*</View>*/}
       </View>
     );

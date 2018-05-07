@@ -3,41 +3,80 @@ import { StyleSheet, View, Animated, Text } from 'react-native';
 import * as Aminatable from 'react-native-animatable';
 
 export default class LetterAnimate extends Component {
+  state={
+    fire:null,
+    fireComponent:null
+  };
+  
+  fullRepeatDelay = 300;
 
-  render() {
-    console.warn('letter animate render');
-    let delayNow = 0;
-    let delay = this.props.delay;
+  timer=null;
+
+  onAnimationEnd = ()=>{
+    this.props.onAnimationEnd();
+    if(this.fullRepeat){
+      this.setState({fire:null});
+      if(this.timer!==null){this.timer=null}
+      this.timer = setTimeout(()=>{
+        this.setState({fire:true});
+      },this.fullRepeatDelay)
+    }
+  };
+
+  LetterShow = null;
+  fadeInLetter = ()=>{
+    if(!this.state.fire){
+      let letterString = "";
+      if(typeof this.props.letters ==='string'){
+        letterString = this.props.letters;
+      }else{
+        letterString = this.props.letters.join();
+      }
+      return null;
+    }
     let letters = [];
     
     //** string or array
-    console.log(typeof this.props.letters)
     if(typeof this.props.letters ==='string'){
       letters = this.props.letters.split('');
     }else{
       letters = this.props.letters;
     }
 
-    let fadeInLetter = letters.map((letter, i)=>{
-      delayNow+=delay;
-      console.log(delayNow);
-      let onAnimationEnd = ()=>{};
-      console.log('i: '+i)
+    if(!!this.props.fullRepeat){
+      this.fullRepeat = this.props.fullRepeat;
+    }
+    if(!!this.props.fullRepeatDelay){
+      this.fullRepeatDelay = this.props.fullRepeatDelay;
+    }
+
+    let delayNow = 0;
+    return letters.map((letter, i)=>{
+      delayNow+=this.props.delay;
+      let onAnimationEnd = ()=>{}
+      
       if(i+1===letters.length){
-        console.log('i+1===letter.length: '+(i+1===letter.length))
-        onAnimationEnd = this.props.onAnimationEnd;
+        onAnimationEnd = this.onAnimationEnd;
+        this.initLetters = true;
       }
       return (
         <Aminatable.Text 
         key={i.toString()} 
-        animation={this.props.animation} delay={delayNow} onAnimationEnd={onAnimationEnd}
+        animation={this.state.fire ? this.props.animation : null} delay={delayNow} onAnimationEnd={onAnimationEnd}
         style={this.props.letterStyle}>{letter}</Aminatable.Text>
       )
     })
+  }
+  
+  render() {
+    console.warn('render')
+    if(!this.initLetters){
+        this.state.fire = this.props.fire;
+    }
 
     return (
       <View style={{...this.props.style}}>
-        {this.props.fire ? fadeInLetter : null}
+          {this.fadeInLetter()}
       </View>
     );
   }
