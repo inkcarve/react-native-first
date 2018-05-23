@@ -1,20 +1,5 @@
 import { StyleSheet } from 'react-native';
-let coreStyleData = {
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  btn:{
-    paddingTop:0,
-    paddingBottom:0,
-
-paddingRight:6,
-
-paddingLeft:6,
-
-  },
+let libStyleData = {
 	alignCenter:{
 		alignItems:"center"
 	},
@@ -39,9 +24,18 @@ paddingLeft:6,
   	top:40,
     right:20
   },
-    // mb10:{
-  //   margin:
-  // }
+  mT10:{
+    marginTop:10
+  },
+  mB10:{
+    marginBottom:10
+  },
+  mL10:{
+    marginLeft:10
+  },
+  mR10:{
+    marginBottom:10
+  }
 }
 // const coreStyle = StyleSheet.create(coreStyleData);
-export default coreStyleData;
+export default libStyleData;

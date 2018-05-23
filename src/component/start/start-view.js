@@ -3,7 +3,9 @@ import { StyleSheet, Text, View, Animated } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import TimerMixin from 'react-timer-mixin';
 import LetterAnimate from '../../animate/letter-animate';
+import coreStyle from "../../style/core-style"
 import { humanDense, humanTall } from 'react-native-typography';
+import { Button , Container, Content, Grid, Row, Col} from "native-base"
 
 export default class StartView extends Component<{}> {
   state={
@@ -13,7 +15,7 @@ export default class StartView extends Component<{}> {
     titleOpacity:0
   };
   subTitleAnimEnd=()=>{
-    console.warn('subTitleAnimEnd');
+    console.log('subTitleAnimEnd');
     this.setState({subTitleEnd:true});
   };
   titleAnimEnd=()=>{
@@ -21,7 +23,9 @@ export default class StartView extends Component<{}> {
   };
   render() {
     return (
+
       <View style={styles.container}>
+      
         <Animatable.Text animation="lightSpeedIn"
         duration={500}
         onAnimationEnd={this.subTitleAnimEnd}
@@ -35,7 +39,7 @@ export default class StartView extends Component<{}> {
           style={{ marginBottom:10, alignItems:'center',flexDirection:'row', minHeight:30}} 
           letterStyle={{fontSize:24, fontStyle:'italic'}}
           fullRepeat={true}
-          fullRepeatDelay={600}></LetterAnimate>
+          fullRepeatDelay={1000}></LetterAnimate>
         }
         <Animatable.View animation="fadeIn">
           <Animatable.Text delay={500}
@@ -43,16 +47,20 @@ export default class StartView extends Component<{}> {
           iterationCount="infinite" animation={this.state.titleEnd?"pulse":null} style={[styles.center,{opacity:this.state.titleEnd?1:0}]}>開始旅程</Animatable.Text>
         </Animatable.View>
       </View>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    // flexDirection:"row",
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    height:'100%',
+    width:'100%',
   },
   center:{
     // flex: 2,

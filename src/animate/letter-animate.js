@@ -15,9 +15,10 @@ export default class LetterAnimate extends Component {
   onAnimationEnd = ()=>{
     this.props.onAnimationEnd();
     if(this.fullRepeat){
-      this.setState({fire:null});
+      
       if(this.timer!==null){this.timer=null}
       this.timer = setTimeout(()=>{
+        this.setState({fire:null});
         this.setState({fire:true});
       },this.fullRepeatDelay)
     }

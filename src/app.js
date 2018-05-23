@@ -1,4 +1,5 @@
 import React from 'react';
+import {AsyncStorage} from 'react-native';
 import {
   Scene,
   Router,
@@ -13,6 +14,11 @@ import {
   Lightbox,
 } from 'react-native-router-flux';
 import Start from './component/start/start';
+
+AsyncStorage.getAllKeys((err, keys)=>{
+  console.log('all keys---')
+  console.log(keys)
+})
 
 const reducerCreate = params => {
   const defaultReducer = new Reducer(params);
@@ -31,7 +37,7 @@ const getSceneStyle = () => ({
 const App = () => (
   <Router>
     <Stack key="root">
-      <Scene key="start" component={Start}>
+      <Scene key="start" component={Start} hideNavBar={true}>
       </Scene>
     </Stack>
   </Router>
