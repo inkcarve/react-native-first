@@ -1,47 +1,35 @@
 import { StyleSheet } from 'react-native';
+import libStyle from './lib-style';
+console.log(libStyle)
 let coreStyleData = {
-  container: {
+  containerCenter: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    width:'100%',
   },
   btn:{
-    paddingTop:0,
-    paddingBottom:0,
-
-paddingRight:6,
-
-paddingLeft:6,
-
+    paddingTop:5,
+    paddingBottom:5,
+    paddingRight:14,
+    paddingLeft:14,
+    height:"auto",
+    width:"auto",
   },
-	alignCenter:{
-		alignItems:"center"
-	},
-	justifyFlexEnd:{
-		justifyContent:"flex-end"
-	},
-	justifyCenter:{
-		justifyContent:"center"
-	},
-	justifySpaceAround:{
-		justifyContent:"space-around"
-	},
-  opacity0:{
-    opacity:0
+  p:{
+    padding:5,
+    paddingBottom:10,
   },
-  opacity1:{
-    opacity:1
+  header:{
+    borderWidth:0,
   },
-  absLayerTopRight:{
-  	position:"absolute",
-  	zIndex:1050,
-  	top:40,
-    right:20
-  },
-    // mb10:{
-  //   margin:
-  // }
+  overlayer:{
+    width:'100%',
+    flex:0,
+  }
 }
-// const coreStyle = StyleSheet.create(coreStyleData);
+
+Object.assign(coreStyleData.overlayer,libStyle.absLayerTopLeft)
+
 export default coreStyleData;

@@ -20,7 +20,7 @@ export default class FadeIn extends Component {
     //   animatedCallBack = this.props.animatedCallBack;
     // }
     // this.state.fadeInAnimate.setValue(0)
-    console.warn('didmount')
+    // console.warn('didmount')
     Animated.timing(
       this.state.fadeInAnimate,
       {

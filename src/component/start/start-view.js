@@ -6,7 +6,8 @@ import LetterAnimate from '../../animate/letter-animate';
 import coreStyle from "../../style/core-style"
 import { humanDense, humanTall } from 'react-native-typography';
 import { Button , Container, Content, Grid, Row, Col} from "native-base"
-
+import UserStore from "../../store/user-store"
+// console.log("start userstore: "+JSON.stringify(UserStore.get()))
 export default class StartView extends Component<{}> {
   state={
     startViewClick:false,
@@ -21,7 +22,10 @@ export default class StartView extends Component<{}> {
   titleAnimEnd=()=>{
     this.setState({titleEnd:true});
   };
+
+
   render() {
+
     return (
 
       <View style={styles.container}>

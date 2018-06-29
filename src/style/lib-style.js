@@ -18,24 +18,22 @@ let libStyleData = {
   opacity1:{
     opacity:1
   },
+  bgNone:{
+  	backgroundColor:"transparent"
+  },
   absLayerTopRight:{
   	position:"absolute",
-  	zIndex:1050,
+  	zIndex:10,
   	top:40,
     right:20
   },
-  mT10:{
-    marginTop:10
+  absLayerTopLeft:{
+    position:"absolute",
+    zIndex:10,
+    top:0,
+    left:0,
   },
-  mB10:{
-    marginBottom:10
-  },
-  mL10:{
-    marginLeft:10
-  },
-  mR10:{
-    marginBottom:10
-  }
+
 }
-// const coreStyle = StyleSheet.create(coreStyleData);
+
 export default libStyleData;

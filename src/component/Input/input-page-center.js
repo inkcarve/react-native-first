@@ -7,9 +7,8 @@ import libStyle from "../../style/lib-style"
 import {Container} from "native-base"
 import dynamicStyle from "../../style/dynamic-style"
 import {Actions} from 'react-native-router-flux';
-import UserStore from '../../store/user-store';
 
-export default class StartIndex extends Component<{}> {
+export default class InputPageCenter extends Component<{}> {
   state={
     name:null,
     formValid:false
@@ -21,18 +20,18 @@ export default class StartIndex extends Component<{}> {
       return;
     }
     this.setState({formValid:true})
-    console.log("name:"+text);
+    console.log("name:"+text)
     this.setState({name:text})
   }
 
   submit = ()=>{
     if(this.state.formValid){
-//       AsyncStorage.setItem("userName", this.state.name)
-//       AsyncStorage.getAllKeys((err, keys)=>{
-//   console.log('all keys---')
-//   console.log(keys)
-// })
-Actions.textCenter({id:"1",secId:"0"});
+      AsyncStorage.setItem("userName", this.state.name)
+      AsyncStorage.getAllKeys((err, keys)=>{
+        console.log('all keys---')
+        console.log(keys)
+      })
+      Actions.chapter1();
     }else{
       alert("名子不可超過12個字")
     }
@@ -61,5 +60,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   }
 });
-
-

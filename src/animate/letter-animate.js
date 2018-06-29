@@ -18,11 +18,19 @@ export default class LetterAnimate extends Component {
       
       if(this.timer!==null){this.timer=null}
       this.timer = setTimeout(()=>{
+        
+        console.log(this);
+        if(!this._unmounted) {
         this.setState({fire:null});
         this.setState({fire:true});
+        }
       },this.fullRepeatDelay)
     }
   };
+
+  componentWillUnmount (){
+      this._unmounted=true
+  }
 
   LetterShow = null;
   fadeInLetter = ()=>{
@@ -70,7 +78,7 @@ export default class LetterAnimate extends Component {
   }
   
   render() {
-    console.warn('render')
+    // console.warn('render')
     if(!this.initLetters){
         this.state.fire = this.props.fire;
     }
