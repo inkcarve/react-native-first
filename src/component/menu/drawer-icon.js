@@ -60,7 +60,7 @@ export default class DrawerIcon extends Component {
 
 
   click(){
-    console.log(this)
+    
     if(!this.state.open){
     Actions.drawerOpen();
     this.animateIconOpen()
@@ -73,6 +73,11 @@ export default class DrawerIcon extends Component {
   }  
 
   render() {
+    console.log(this)
+
+    UserStore.navIconOpen = this.animateIconOpen.bind(this)
+    UserStore.navIconClose = this.animateIconClose.bind(this)
+
     return (
         <Button transparent icon style={[libStyle.absLayerTopRight,{zIndex:10000000,right:-50,top:0,width:50}]} onPress={()=>{this.click()}}>
           {/*<Content style={{paddingLeft:5}}>*/}

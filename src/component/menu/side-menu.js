@@ -45,6 +45,7 @@ export default class SideMenu extends Component {
 
   goIndex(){
     ChapterService.goIndex();
+    UserStore.navIconClose()
   }
 
   imageLoaded() {
@@ -63,7 +64,7 @@ export default class SideMenu extends Component {
 
     return (
     
-        <Container style={[libStyle.bgNone]}>
+        <Container style={[libStyle.bgNone]} {...this.props}>
         <DrawerIcon>
   </DrawerIcon>
 {/*        <Image source={require('../../image/garfield.png')}
