@@ -1,5 +1,5 @@
 import React from 'react';
-import {AsyncStorage, SafeAreaView} from 'react-native';
+import {AsyncStorage, SafeAreaView, StatusBar, Dimensions, View} from 'react-native';
 import SideMenu from './component/menu/side-menu';
 import {
   Scene,
@@ -25,32 +25,17 @@ import UserStore from './store/user-store'
 import DrawerIcon from './component/menu/drawer-icon'
 
 
-
+let winSize = Dimensions.get('window');
 
 // global.UserStore = UserStore;
 // UserStore;
-let init = async ()=>{
-  // console.log('app init')
-// await UserStore.set({userName:"測試1"});
-// await UserStore.set({userData:{age:"18",name:"測試1"}}); 
-await UserStore.load();
-console.log(UserStore.chapterData)
-// ChapterService.reset()
-if(!UserStore.chapterData.ids){
-ChapterService.reset()
-}else{
-ChapterService.turnTo(UserStore.chapterData.ids)
-}
-// console.warn(global.UserStore); 
+let init = async ()=>{ 
+  await ChapterService.init()
+// setTimeout(()=>{Actions.drawerOpen()},1000)
 }
 
 init().then(res=>{console.log('ok')}).catch(err=>{console.error('app init error');console.error(err)})
 
-// console.warn(global.UserStore);
-// AsyncStorage.getAllKeys((err, keys)=>{
-//   console.log('all keys---')
-//   console.log(keys)
-// })
 
 const getSceneStyle = () => ({
   backgroundColor: '#F5FCFF',
@@ -70,13 +55,22 @@ const chapter = ()=>{
 
 const App = () => (
   <SafeAreaView style={{flex:1}}>
+  <StatusBar hidden={true} />
+
+  
+{/*  <View style={{flex:1, alignItems:'stretch', zIndex:99999}}>*/}
   <StyleProvider style={getTheme(nativeBaseVar)}>
+
+
   <Router wrapBy={observer}>
   <Lightbox key="lightbox">
     <Stack key="root">
       <Drawer key="SideMenu" 
-       drawerIcon={<DrawerIcon />}
+       drawerIcon={null}
        contentComponent={SideMenu} 
+       drawerWidth={winSize.width-50}
+       drawerBackgroundColor='rgba(255,255,255, 0.95)'
+       hideDrawerButton={true}
        hideNavBar>
         {chapter()}
       </Drawer>
@@ -85,6 +79,7 @@ const App = () => (
   </Router>
 
   </StyleProvider>
+  {/*</View>*/}
   </SafeAreaView>
 )
 

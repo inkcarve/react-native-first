@@ -1,6 +1,6 @@
 //** import lib
 import React from 'react';
-import { Animated, StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
+import { Animated, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import * as Animatable from "react-native-animatable";
 import { Button , Container, Content, Grid, Row, Col} from "native-base"
 import {Actions} from 'react-native-router-flux'
@@ -10,19 +10,17 @@ import coreStyle from '../../style/core-style'
 import libStyle from '../../style/lib-style'
 
 //** import custom
-import StartView from "./start-view";
-import StartIndex from "./start-index";
+import StartView from "./start-view"
+import StartIndex from "./start-index"
 import UserStore from "../../store/user-store"
 import ChapterService from '../../setting/chapter-service'
-
-let winSize = Dimensions.get('window');
 
 export default class Start extends React.Component<{}> {
 
   state={
     startViewClick:false,
     startViewEnd:false,
-  };
+  }
 
   handleViewRef = ref => this.view = ref;
   // overlayClick = ()=> {this.view.fadeOut(400);}
@@ -30,26 +28,22 @@ export default class Start extends React.Component<{}> {
   startViewClick = ()=>{
     // console.log('startViewClick')
     // console.log(UserStore.userName)
-    if(UserStore.userName){
+    if(!UserStore.userData || !UserStore.userData.name){
       // Actions.textCenter({id:"1",secId:"0"});
-      ChapterService.go();
+      this.view.fadeOut(400).then(endState=>{
+        if(endState){
+          this.setState({'startViewEnd':true});
+          this.setState({'startViewClick':true});
+        }
+      });
     }else{
-      this.view.fadeOut(400);
+      ChapterService.go();
     }
-  };
-  startViewEnd = ()=>{
-    if(this.state.startViewEnd)return
-    this.setState({'startViewEnd':true});
-    console.log("startViewEnd: "+this.state.startViewEnd);
-  };
+  }
 
   render() {
-  //   let StartViewBox = ()=>{
-  //   return ();
-  // }
 
-  console.log('Start render')
-    console.log(ChapterService)
+    ChapterService.init()
 
     return (
       <View style={styles.container}>
@@ -59,7 +53,7 @@ export default class Start extends React.Component<{}> {
       <TouchableOpacity onPress={this.startViewClick}>
       {
       this.state.startViewEnd?null:(
-        <Animatable.View useNativeDriver={true} ref={this.handleViewRef} onAnimationEnd={this.startViewEnd}>
+        <Animatable.View useNativeDriver={true} ref={this.handleViewRef}>
           <StartView></StartView>
         </Animatable.View>
       )

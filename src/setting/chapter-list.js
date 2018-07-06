@@ -23,7 +23,7 @@ let chapterList = {
                         "，歡迎來到初始之地"
                         ]
                     },{ text: [
-                        "",
+                        "接下來將為您介紹使用方式",
                             ]
                     }
                 ]
@@ -38,7 +38,8 @@ let chapterList = {
                         "文字方塊22222222222222222222222222222222222222222222222222222222222"
                         ]
                     }
-                ]
+                ],
+                pass:true
             },
             2: {
                 tpl:"deckSwiper",
@@ -52,7 +53,7 @@ let chapterList = {
                     }
                 ],
                 overlayer:[{ text: [
-                        "左滑，右滑"
+                        "左滑，右滑，選擇正確的方向"
                         ]
                     },{ text: [
                         "點擊開始"
@@ -62,22 +63,26 @@ let chapterList = {
                       {
                         text: "Card One",
                         name: "SuperGirl",
-                        image: Img
+                        image: Img,
+                        value: 'l'
                       },
                       {
                         text: "Card Two",
                         name: "SuperGirl Two",
-                        image: Img
+                        image: Img,
+                        value: 'r'
                       },
                       {
                         text: "Card Three",
                         name: "SuperGirl Three",
-                        image: Img
+                        image: Img,
+                        value: 'l'
                       },
                       {
                         text: "Card Four",
                         name: "SuperGirl Four",
-                        image: Img
+                        image: Img,
+                        value: 'l'
                       }
                 ]
             }

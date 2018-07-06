@@ -21,20 +21,20 @@ export default class ListButton extends Component {
     // console.log(this.props);
 
     return (
-      <ListItem button icon onPress={this.props.onPress}>
+      <ListItem button icon onPress={this.props.onPress} {...this.props}>
             <Left>
-              <Button transparent style={coreStyle.btn}>
-                <Icon active name={this.props.leftIcon} style={{color:"#999999"}}/>
-              </Button>
+              {/*<Button transparent style={coreStyle.btn}>*/}
+                <Icon name={this.props.leftIcon} style={[coreStyle.icon, coreStyle.iconMenuLeft]}/>
+              {/*</Button>*/}
             </Left>
             <Body>
               <Text>{this.props.bodyText}</Text>
             </Body>
             <Right>
             <Text>{this.props.RightText}</Text>
-              <Icon active name={this.props.rightIcon} />
+              <Icon name={this.props.rightIcon} />
             </Right>
-            </ListItem>
+      </ListItem>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, SafeAreaView, Platform } from 'react-native'
+import { StyleSheet, View, SafeAreaView, Platform, Image, findNodeHandle } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import { Container,
   Header,
@@ -7,7 +7,9 @@ import { Container,
   Content,
   Button,
   Icon,
+
   ListItem,
+  List,
   Text,
   Badge,
   Left,
@@ -17,7 +19,9 @@ import { Container,
   Radio,
   Picker,
   Separator} from "native-base"
-import {Actions} from 'react-native-router-flux';
+import {Actions} from 'react-native-router-flux'
+import FastImage from 'react-native-fast-image'
+// import { BlurView } from 'react-native-blur';
 
 import coreStyle from "../../style/core-style"
 import libStyle from "../../style/lib-style"
@@ -26,44 +30,56 @@ import dynamicStyle from "../../style/dynamic-style"
 import UserStore from '../../store/user-store';
 import ChapterService from '../../setting/chapter-service';
 import ListButton from '../button/list-button'
+import DrawerIcon from './drawer-icon'
+
 const Item = Picker.Item;
 
 export default class SideMenu extends Component {
-  // super(props);
-  // state={
-  //   selectedItem: undefined,
-  //     selected1: "key1",
-  //     results: {
-  //       items: []
-  //     }
-  // };
 
   constructor(props) {
     super(props);
     this.state = {
-      selectedItem: undefined,
-      selected1: "key1",
-      results: {
-        items: []
-      }
+      viewRef: null
     };
-  }
-  onValueChange(value: string) {
-    this.setState({
-      selected1: value
-    });
   }
 
   goIndex(){
     ChapterService.goIndex();
   }
 
+  imageLoaded() {
+    this.setState({ viewRef: findNodeHandle(this.backgroundImage) });
+  }
 
+  async clearData(){
+    
+    ChapterService.clearData()
+    
+  }
 
   render() {
-    return (
 
-        <Container >
+    console.log('render drawer')
+
+    return (
+    
+        <Container style={[libStyle.bgNone]}>
+        <DrawerIcon>
+  </DrawerIcon>
+{/*        <Image source={require('../../image/garfield.png')}
+          ref={(img) => { this.backgroundImage = img; }}
+          style={styles.absolute}
+          onLoadEnd={this.imageLoaded.bind(this)} 
+          />*/}
+      {/*  <BlurView
+          style={{
+            position: "absolute",
+            top: 0, left: 0, bottom: 0, right: 0,
+          }}
+          viewRef={this.state.viewRef}
+          blurType="light"
+          blurAmount={10}
+        />*/}
 {/*        <Header>
           <Left>
             <Button transparent onPress={() => this.props.navigation.goBack()}>
@@ -76,175 +92,15 @@ export default class SideMenu extends Component {
           <Right />
         </Header>*/}
 
-        <View style={{padding:0,flex:1,flexDirection:'column',justifyContent:'flex-start',alignItems:'stretch'}}>
-          <Separator bordered noTopBorder style={{flex:0}}/>
-        
-          
-          <ListButton onPress={this.goIndex} leftIcon="ios-home" bodyText="回到首頁" rightIcon="ios-arrow-forward"/>
-           <Separator bordered />
-  {/* 
-          <ListItem icon>
-            <Left>
-              <Button style={{ backgroundColor: "#FF9501" }}>
-                <Icon active name="plane" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Airplane Mode</Text>
-            </Body>
-            <Right>
-              <Switch value={false} onTintColor="#50B948" />
-            </Right>
-          </ListItem>
-          <ListItem icon>
-            <Left>
-              <Button style={{ backgroundColor: "#007AFF" }}>
-                <Icon active name="wifi" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Wi-Fi</Text>
-            </Body>
-            <Right>
-              <Text>GeekyAnts</Text>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
-            </Right>
-          </ListItem>
-          <ListItem icon>
-            <Left>
-              <Button style={{ backgroundColor: "#007AFF" }}>
-                <Icon active name="bluetooth" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Bluetooth</Text>
-            </Body>
-            <Right>
-              <Text>On</Text>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
-            </Right>
-          </ListItem>
-          <ListItem icon>
-            <Left>
-              <Button style={{ backgroundColor: "#4CDA64" }}>
-                <Icon active name="phone-portrait" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Mobile Data</Text>
-            </Body>
-            <Right>
-              <Radio selected />
-            </Right>
-          </ListItem>
-          <ListItem icon last>
-            <Left>
-              <Button style={{ backgroundColor: "#4CDA64" }}>
-                <Icon active name="link" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Personal Hotspot</Text>
-            </Body>
-            <Right>
-              <Text>Off</Text>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
-            </Right>
-          </ListItem>
-
-          <Separator bordered />
-
-          <ListItem icon>
-            <Left>
-              <Button style={{ backgroundColor: "#FD3C2D" }}>
-                <Icon active name="notifications" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Notifications</Text>
-            </Body>
-            <Right>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
-            </Right>
-          </ListItem>
-          <ListItem icon>
-            <Left>
-              <Button style={{ backgroundColor: "#8F8E93" }}>
-                <Icon active name="switch" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Control Center</Text>
-            </Body>
-            <Right>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
-            </Right>
-          </ListItem>
-          <ListItem icon last>
-            <Left>
-              <Button style={{ backgroundColor: "#5855D6" }}>
-                <Icon active name="moon" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Do Not Disturb</Text>
-            </Body>
-            <Right>
-              <Text>Yes</Text>
-            </Right>
-          </ListItem>
-          <Separator bordered />
-          <ListItem icon>
-            <Left>
-              <Button style={{ backgroundColor: "#4CDA64" }}>
-                <Icon name="arrow-dropdown" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Pick SIM</Text>
-            </Body>
-            <Right>
-              <Picker
-                note
-                iosHeader="Select Your Sim"
-                iosIcon={<Icon name="ios-arrow-down-outline" />}
-                mode="dropdown"
-                selectedValue={this.state.selected1}
-                onValueChange={this.onValueChange.bind(this)}
-              >
-                <Item label="TATA" value="key0" />
-                <Item label="AIRTEL" value="key1" />
-              </Picker>
-            </Right>
-          </ListItem>
-          <ListItem icon>
-            <Left>
-              <Button style={{ backgroundColor: "#8F8E93" }}>
-                <Icon active name="cog" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Software Update</Text>
-            </Body>
-            <Right>
-              <Badge style={{ backgroundColor: "#FD3C2D" }}>
-                <Text>2</Text>
-              </Badge>
-            </Right>
-          </ListItem>
-          <ListItem last icon>
-            <Left>
-              <Button style={{ backgroundColor: "#007AFF" }}>
-                <Icon active name="hand" />
-              </Button>
-            </Left>
-            <Body>
-              <Text>Privacy</Text>
-            </Body>
-            <Right>
-              {Platform.OS === "ios" && <Icon active name="arrow-forward" />}
-            </Right>
-          </ListItem>*/}
+        <View style={[{padding:0,flex:1,flexDirection:'column',justifyContent:'flex-start',alignItems:'stretch'},libStyle.bgNone]}>
+          <Content style={[libStyle.bgNone]}>
+          <Separator bordered noTopBorder style={coreStyle.saparator}/>
+            <List>
+              <ListButton onPress={this.goIndex} leftIcon="ios-home" bodyText="回到首頁" rightIcon="ios-arrow-forward"/>
+              <ListButton last onPress={this.clearData} leftIcon="ios-refresh-circle" bodyText="重置資料" rightIcon="ios-arrow-forward"/>
+              {/*<Separator bordered />*/}
+            </List>
+          </Content>
         </View>
       </Container>
 

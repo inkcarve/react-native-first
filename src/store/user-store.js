@@ -6,10 +6,10 @@ const storageKey = projectSetting.storageKey;
 
 class UserStore {
   @observable userName: string;
-  @observable userData: object;
-  @observable chapterData: object;
+  @observable userData={}
+  @observable chapterData={}
   @observable winSize
-
+  @observable blurViewRef
 
   load = async ()=>{
     this.winSize = Dimensions.get('window');
@@ -33,16 +33,19 @@ class UserStore {
   	// console.warn(data)
   	Object.assign(this,data);
   	await AsyncStorage.setItem(storageKey, JSON.stringify({ userName:this.userName, userData:this.userData, chapterData:this.chapterData}));
-    console.log(AsyncStorage.getItem(storageKey))
+    // console.log(AsyncStorage.getItem(storageKey))
   }
 
-  getAll = ()=>{
-  	// console.log({userName:this.userName, userData:this.userData})
-  	return {userName:this.userName, userData:this.userData}
-  }
+  // getAll = ()=>{
+  // 	// console.log({userName:this.userName, userData:this.userData})
+  // 	return {userName:this.userName, userData:this.userData}
+  // }
 
   remove = async () => {
     await AsyncStorage.removeItem(storageKey);
+    this.userName=null
+    // this.chapterData=null
+    this.userData={}
   };
 
 }

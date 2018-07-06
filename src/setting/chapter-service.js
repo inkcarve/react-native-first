@@ -109,6 +109,7 @@ class ChapterService {
         this.ids = nextData.ids
         let setChapterData = await this.setChapterData(nextData.ids)
         if(!setChapterData)return false;
+        if(setChapterData.pass){this.go();return}
         // Actions[nextData.tpl](nextData.ids);
         this.actions();
     }
@@ -121,6 +122,20 @@ class ChapterService {
 
     goIndex(){
         this.turnTo({id:0,secId:0})
+    }
+
+    async init(){
+        await UserStore.load();
+        if(!UserStore.chapterData.ids){
+          this.reset()
+        }else{
+          this.turnTo(UserStore.chapterData.ids)
+        }
+    }
+
+    async clearData(){
+        await UserStore.remove();
+        this.goIndex()
     }
 }
 
