@@ -185,11 +185,11 @@ import HeaderBox from '../header/header-box'
           }}*/
           /*animateOverlayLabelsOpacity*/
           /*animateCardOpacity*/>
-            <Button
+            {/*<Button
                 onPress={() => {console.log('oulala')}}
                 title="Press me">
                 You can press me
-            </Button>
+            </Button>*/}
           </Swiper>)
   }
 
@@ -255,11 +255,12 @@ import HeaderBox from '../header/header-box'
       <Container style={styles.container}>
         <HeaderBox>
         </HeaderBox>
-          <View style={{flex:1,paddingLeft:12,paddingRight:12}}>
-          {this.turnOnSwiper ? this.deckSwiper(this.chapterData.cards):null}
+          <View style={[coreStyle.containerCenter,{flex:1,paddingLeft:12,paddingRight:12}]}>
           {<Text>一共答對 {this.statistics.correct}</Text>}
           {/*this.nativeBaseDeckSwiper(this.chapterData.cards)*/}
-        </View>
+          </View>
+          {this.turnOnSwiper ? this.deckSwiper(this.chapterData.cards):null}
+
         
         {/*overlayer*/}
         {this.overlayer?(<TouchableOpacity onPress={this.overlayerClick}  style={[coreStyle.overlayer]}>
@@ -267,9 +268,8 @@ import HeaderBox from '../header/header-box'
           <Container style={coreStyle.containerCenter}>
             <Content padder contentContainerStyle={{ 
                 justifyContent: 'center',
-
                 flex: 1 }}>
-                {mapContent(this.chapterData.overlayer)}
+                {mapContent.call({data:this.chapterData.overlayer, style:[{textAlign:'center'}]})}
                 <View style={{position:'relative', height:140}}>
                 <LottieView source={lottieSwipeJson} loop={true} progress={this.progress}/>
                 </View>

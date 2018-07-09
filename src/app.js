@@ -54,11 +54,13 @@ const chapter = ()=>{
 
 
 const App = () => (
-  <SafeAreaView style={{flex:1}}>
-  <StatusBar hidden={true} />
+  
+  
 
   
-{/*  <View style={{flex:1, alignItems:'stretch', zIndex:99999}}>*/}
+  <View style={{flex:1, alignItems:'stretch', zIndex:99999}}>
+  {/*<SafeAreaView style={{flex:1}}>*/}
+  <StatusBar hidden={true} />
   <StyleProvider style={getTheme(nativeBaseVar)}>
 
 
@@ -79,8 +81,9 @@ const App = () => (
   </Router>
 
   </StyleProvider>
-  {/*</View>*/}
-  </SafeAreaView>
+  {/*</SafeAreaView>*/}
+  </View>
+  
 )
 
 
