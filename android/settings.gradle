@@ -1,0 +1,95 @@
+rootProject.name = 'first'
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-fast-image'
+project(':react-native-fast-image').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-fast-image/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-3d-model-view'
+project(':react-native-3d-model-view').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-3d-model-view/android')
+include ':react-native-vector-icons'
+project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
+include ':react-native-material-kit'
+project(':react-native-material-kit').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-material-kit/android')
+include ':react-native-blur'
+project(':react-native-blur').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-blur/android')
+include ':lottie-react-native'
+project(':lottie-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/lottie-react-native/src/android')
+
+include ':app'
